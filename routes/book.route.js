@@ -1,7 +1,24 @@
 const express = require("express");
-const { addBook, searchBooks, updateBook } = require("../controllers/index");
+const {
+  addBook,
+  searchBooks,
+  updateBook,
+  getAllBooks,
+  deletedBooks,
+} = require("../controllers/index");
 const { validateBook, validateBookId } = require("../validations/index");
 const router = express.Router();
+
+router.get("/", async (req, res) => {
+  const books = await getAllBooks();
+  return res.status(200).json(books);
+});
+
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const deletedBook = await deletedBooks(id);
+  return res.status(200).json(deletedBook);
+});
 
 //MS1_Assessment_1.2: Adding Books.
 router.post("/", async (req, res) => {

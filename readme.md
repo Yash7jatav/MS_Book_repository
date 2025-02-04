@@ -26,7 +26,7 @@ The **Book Repository API** allows users to manage books, create reading lists, 
 - **Sequelize ORM** for database management.
 - **SQLite** as the database engine.
 - **Jest** for testing.
-- **Vercel** for deployment of the API.
+- **Render** for deployment of the API.
 
 ## Project Structure
 

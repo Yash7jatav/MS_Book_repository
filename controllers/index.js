@@ -14,10 +14,34 @@ async function addUser(newUserData) {
   return { message: "User created successfully", user };
 }
 
+//Get all users.
+async function getAllUsers() {
+  const result = await User.findAll();
+  return result;
+}
+
+//Delete all users.
+async function deletedUsers(id) {
+  const result = await User.destroy({ where: { id } });
+  return { message: "Deleted successfully.", result };
+}
+
 //Add new book.
 async function addBook(newBookData) {
   const book = await Book.create(newBookData);
   return { message: "Book added successfully", book };
+}
+
+//Get all books.
+async function getAllBooks() {
+  const result = await Book.findAll();
+  return result;
+}
+
+//Delete all users.
+async function deletedBooks(id) {
+  const result = await Book.destroy({ where: { id } });
+  return { message: "Deleted successfully.", result };
 }
 
 //Searching books.
@@ -75,4 +99,8 @@ module.exports = {
   addToReadingList,
   getUserByReadingList,
   removeBookFromReadingList,
+  getAllUsers,
+  deletedUsers,
+  getAllBooks,
+  deletedBooks,
 };
